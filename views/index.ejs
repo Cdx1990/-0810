@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>示例页面 - 受限访问</title>
+  <meta name="description" content="这是一个示例网站，包含受限访问页面，仅允许特定用户登录后访问。" />
+  <link rel="canonical" href="<%= siteUrl ? siteUrl : '' %>/" />
+  <meta property="og:title" content="示例页面 - 受限访问" />
+  <meta property="og:description" content="仅允许特定用户登录后访问的受限内容示例。" />
+  <meta property="og:type" content="website" />
+  <% if (siteUrl) { %>
+  <meta property="og:url" content="<%= siteUrl %>/" />
+  <% } %>
+</head>
+<body>
+  <main style="max-width:720px;margin:48px auto;padding:0 16px;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;">
+    <h1>示例网站</h1>
+    <p>此网站包含一个受限访问的页面。搜索引擎可以索引本首页，但受限内容不会被索引。</p>
+    <p>
+      <% if (isAuthenticated) { %>
+      <a href="/secure">进入受限页面</a>
+      <form action="/logout" method="post" style="display:inline-block;margin-left:12px;">
+        <button type="submit">退出登录</button>
+      </form>
+      <% } else { %>
+      <a href="/login">登录</a>
+      <% } %>
+    </p>
+    <p><a href="/sitemap.xml">站点地图</a> · <a href="/robots.txt">robots.txt</a></p>
+  </main>
+</body>
+</html>

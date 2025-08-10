@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>受限页面</title>
+  <meta name="robots" content="noindex,nofollow" />
+</head>
+<body>
+  <main style="max-width:720px;margin:48px auto;padding:0 16px;font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;">
+    <h1>受限内容</h1>
+    <p>你好，<strong><%= username %></strong>。这是仅允许该用户访问的页面。</p>
+    <form action="/logout" method="post" style="margin-top:16px;">
+      <button type="submit">退出登录</button>
+    </form>
+  </main>
+</body>
+</html>
